@@ -1,0 +1,10 @@
+# file: ansible/playbook.yml
+---
+ - hosts: all
+   sudo: yes
+   roles:
+    - common
+    - php
+    - nginx
+    - mysql
+#    - phpmyadmin

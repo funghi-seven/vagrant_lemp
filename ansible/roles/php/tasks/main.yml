@@ -1,0 +1,27 @@
+- name: 既存のphpをアンインストール
+  yum: name=php* state=absent
+  ignore_errors: true
+
+- name: phpをインストール
+  yum: pkg={{item}} enablerepo=webtatic state=present
+  with_items:
+    - php71u
+    - php71u-devel
+    - php71u-common
+    - php71u-gd
+    - php71u-json
+    - php71u-mbstring
+    - php71u-mcrypt
+    - php71u-mysqlnd
+    - php71u-opcache
+    - php71u-pdo
+    - php71u-xml
+    - php71u-pecl-imagick
+    - php71u-pecl-redis
+    - php71u-pecl-xdebug
+
+- name: php-fpmをインストール
+  yum: name=php71u-fpm state=latest enablerepo=ius
+
+- name: php-fpmの自動起動
+  command: chkconfig php-fpm on

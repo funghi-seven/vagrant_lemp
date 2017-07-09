@@ -1,0 +1,5 @@
+- name: nginxをインストール
+  yum: name=nginx state=present enablerepo=nginx
+
+- name: nginxの自動起動
+  command: chkconfig nginx on

@@ -1,0 +1,22 @@
+
+- name: mysqld のインストール
+  yum:
+    name: "{{ item }}"
+    enablerepo: mysql56-community
+    disablerepo: mysql57-community
+    state: present
+  with_items:
+    - mysql-community-server
+    - mysql-community-client
+    - mysql-community-common
+    - mysql-community-libs
+    - mysql-community-libs-compat
+
+- name: mysqld 起動・自動起動設定
+  service:
+    name=mysqld
+    state=started
+    enabled=yes
+
+
+
