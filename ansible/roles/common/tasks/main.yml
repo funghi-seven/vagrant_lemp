@@ -23,9 +23,9 @@
   selinux: state=disabled
   ignore_errors: true
 
-- name: firewallをストップする
-  service: name=firewalld enabled=true state=stopped
-  ignore_errors: true
+#- name: firewallをストップする
+#  service: name=firewalld enabled=true state=stopped
+#  ignore_errors: true
 
 #- name: development toolsをインストール
 #  yum: name="@Development tools" state=present
