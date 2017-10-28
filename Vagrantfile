@@ -51,6 +51,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "ansible_local" do |ansible|
     ansible.limit = "all"
     ansible.playbook = "/tmp/ansible/playbook.yml"
+    ansible.install = true 
   end
 
 end
